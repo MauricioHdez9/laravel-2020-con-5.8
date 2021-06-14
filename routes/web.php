@@ -101,7 +101,39 @@
 // Route::view('/','home',['nombre' => 'mau']);
 // Route::view('/','home');// recomendado para cosas que son secillas y no nesecitan pases de variable como politicas de privacidad, terminos y condiciones 
 // Route::view('/','home')->name('home'); //version siplificada 
-Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url) )
+// Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url) )
+// Route::view('/about','about')->name('about');
+// Route::view('/portafolio','portafolio')->name('portafolio');
+// Route::view('/contact','contact')->name('contact');
+//------------------- #14- esctrutura de control con blade------------------------------------------------------------------------------------------------- 
+// $portafolio=[['title'=>'proyecto#1'],
+//              ['title'=>'proyecto#2'],
+// 			 ['title'=>'proyecto#3'],
+// 			 ['title'=>'proyecto#4']];
+// Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url))
+// Route::view('/about','about')->name('about');
+// Route::view('/portafolio','portafolio')->name('portafolio');
+// Route::view('/contact','contact')->name('contact');
+
+// Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url))
+// Route::view('/about','about')->name('about');
+// // Route::view('/portafolio','portafolio',compact('portafolio'))->name('portafolio');//compact  son las variables que puede usar las vistas 
+// // Route::get('/portafolio','PortafolioController')->name('portafolio');//por cotrolador con el i en la migracion
+// Route::get('/portafolio','PortafolioController@index')->name('portafolio');
+// Route::view('/contact','contact')->name('contact');
+
+// Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url))
+// Route::view('/about','about')->name('about');
+// Route::get('/portafolio','PortafolioController@index')->name('portafolio');
+// Route::view('/contact','contact')->name('contact');
+ 
+// Route::resource('proyectos','PortafolioController');// forma simple de crear todos estos metodos en ves de crearlos uno * uno investigar para que son todos estos metodos que crea  
+// Route::resource('proyectos','portafolioController');//resource= comando para crear todas las metodos de   un controlador =Route::resource('nombre del recurso"eso no ayuda "','nombre del controlador ')
+// Route::resource('projects','portafolioController')->only(['index','show']);//only = solo mostrara los metodos escritos en el arreglo 
+// Route::resource('projects','portafolioController')->except(['index','show'])//except =se mostraran todos los metodos menos los que esten en el arreglo 
+
+Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url))
 Route::view('/about','about')->name('about');
-Route::view('/portafolio','portafolio')->name('portafolio');
+Route::get('/portafolio','PortafolioController@index')->name('portafolio');
 Route::view('/contact','contact')->name('contact');
+Route::post('contact','MessagesController@store');
