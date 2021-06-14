@@ -23,7 +23,10 @@ class MessagesController extends Controller
     ],[ // este arreglo es para modificar los mensages de error en  el contenido especifico 
         'name.required'=>'tu nombre es obligatorio perro'
 
+
     ]);
-    return"datos enviados exitosamente ";
+     // #21 como eviar email por laravel 
+     Mail::to(shiwarroku@gmail.com)->send(new MassageReceived);
+     return 'mensaje enviado';
     }
 }
