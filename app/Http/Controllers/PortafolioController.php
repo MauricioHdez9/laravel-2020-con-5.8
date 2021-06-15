@@ -20,11 +20,12 @@ class PortafolioController extends Controller
 		// 	         ['title'=>'proyecto#3'],
 		// 	         ['title'=>'proyecto#4']];
         //$portafolio = DB::table('projects')->get();//opcion para obtener los datos de la base de datos 
-       $portafolio = Project::get();//
+       // $portafolio = Project::get();//
     //    $portafolio = Project::orderBy('created_at',"DESC")->get();//forma que te muetra la tabla de forma decendente //created_at = nombre de la columna 
     //    $portafolio = Project::latest('created_at')->get();
-       $portafolio = Project::latest('created_at')->paginate();//paginate muestra sierta cantidad de elementos por pagina  por defal muestra 15 meter en los parentecis el numero para modificar 
-                     return view('portafolio',compact('portafolio'));
+    //    $projects = Project::latest('created_at')->paginate();//paginate muestra sierta cantidad de elementos por pagina  por defal muestra 15 meter en los parentecis el numero para modificar 
+                    //  return view('portafolio',compact('projects'));
+                     return view('portafolio',['projects'=>Project::latest()->paginate()]);
     }
 
     /**

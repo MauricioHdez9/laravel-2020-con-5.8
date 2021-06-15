@@ -15,7 +15,7 @@
 <ul>
 	
 
-	 @forelse ($portafolio as $itemportafolio)
+	 @forelse ($projects as $project)
       <li>{{$itemportafolio->title}}<small>{{$itemportafolio->description}}</small></li>  
       {{-- //imprimir los datos mediante la base de datos --}} 
      
@@ -24,7 +24,7 @@
      <li>no hay que mostrar</li>
          
      @endforelse
-     {{$portafolio->links()}} 
+     {{$projects->links()}} 
 
 
 
