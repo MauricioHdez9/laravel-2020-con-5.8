@@ -24,7 +24,7 @@
      <li>no hay que mostrar</li>
          
      @endforelse
-     {{-- {{$portafolio->links()}}  --}}
+     {{$portafolio->links()}} 
 
 
 
