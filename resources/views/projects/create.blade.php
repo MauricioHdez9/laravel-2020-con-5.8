@@ -1,0 +1,26 @@
+@extends('layout') <!--llamando a la plantilla  -->
+
+@section('titulo','creador  de proyecto')
+
+@section('content') <!--contenido  de la mini plantilla  --> 
+
+<h1>crear proyecto</h1>
+<form method="POST" action="{{route('projects.store')}}"> 
+	
+	<label for="">
+		titulo del proyecto <br>
+		<input type="text" name="title">
+	</label>
+	<br>
+	<label for="">
+		url del proyecto <br>
+		<input type="text" name="url">
+	</label>
+	<br>
+	<label for="">
+		descripcion del proyecto <br>
+		<textarea name="description">
+	</label>
+	<button>guardar</button>
+</form>
+@endsection

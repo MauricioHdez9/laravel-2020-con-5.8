@@ -135,6 +135,8 @@
 Route::view('/','home')->name('home');////////##primer atributo es la ruta(url),'2° nombre de  la vista en la carpeta (views)'->( 3° nombre de la ruta(url))
 Route::view('/about','about')->name('about');
 Route::get('/portafolio','ProjectController@index')->name('projects.index');
+Route::get('/portafolio/crear','ProjectController@create')->name('projects.create');
+Route::post('/portafolio','ProjectController@store')->name('projects.store');
 Route::get('/portafolio/{project}','ProjectController@show')->name('projects.show');
 Route::view('/contact','contact')->name('contact');
 Route::post('contact','MessageController@store')->name('messages.store');
