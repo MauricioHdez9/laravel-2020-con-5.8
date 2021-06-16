@@ -9,7 +9,7 @@
 @endforeach --}}
     
 @endif
-<form method="POST" action="{{route('contact')}}">
+<form method="POST" action="{{route('messages.store')}}">
     @csrf    {{-- // esto  es protecion contra ateque xcl contra scrips  si no se pone saltara error 419--}}
     <input name="name" placeholder="Nombre ..."value="{{old('name')}}"><br> {{-- //es importante que se ponga el name ya que sin esto no se podra visualisar en el json --}}
     {!! $errors->first('name','<small>:message</small><br>') !!}

@@ -5,7 +5,7 @@
 @endsection --}}
 <!-- //-----------------------------#13-BLADE MOTOR DE PLANTILLAS-----------6:10----------------------------------------------------------------------------------------->
 
-@extends('layout') <!--llamando a la plantilla  -->
+{{-- @extends('layout') <!--llamando a la plantilla  -->
 
 @section('titulo','portafolio')
 
@@ -16,18 +16,19 @@
 	
 
 	 @forelse ($projects as $project)
-      <li>{{$itemportafolio->title}}<small>{{$itemportafolio->description}}</small></li>  
+      {{-- <li>{{$project->title}}<small>{{$project->descrsption}}</small></li>   --}}
       {{-- //imprimir los datos mediante la base de datos --}} 
+      {{-- <li> <a href="{{route('portafolio.show',$project)}}">{{$project->title}}</a> </li>  
      
          
      @empty
      <li>no hay que mostrar</li>
          
      @endforelse
-     {{$projects->links()}} 
+     {{$projects->links()}}  --}}
 
 
 
-</ul>
-@endsection
+{{-- </ul>
+@endsection --}}
 <!-- //------------------------------------------------------------------------------------------------------------------------------- -->

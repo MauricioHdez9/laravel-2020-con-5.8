@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Project;
 
-class PortafolioController extends Controller
+class ProjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -25,7 +25,7 @@ class PortafolioController extends Controller
     //    $portafolio = Project::latest('created_at')->get();
     //    $projects = Project::latest('created_at')->paginate();//paginate muestra sierta cantidad de elementos por pagina  por defal muestra 15 meter en los parentecis el numero para modificar 
                     //  return view('portafolio',compact('projects'));
-                     return view('portafolio',['projects'=>Project::latest()->paginate()]);
+                     return view('projects.index',['projects'=>Project::latest()->paginate()]);
     }
 
     /**
@@ -55,9 +55,13 @@ class PortafolioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( Project $project) //(estamos mandado todo el proyecto por su id )//la variable es la que se pone en web en las rutas y por esa se jala todo el "archivo" 
     {
-        //
+    //    $project =  Project::find($id);// Project es el Model revisar el modelo que captura todo los datos //project se localisa app/providers/ 
+    //    return view('projects.show',['project'=> $project]);
+    //    return $id;
+    //    return view('projects.show',['project'=>Project::findOrFail($id)]);
+          return view('projects.show',['project' => $project]);//esta forma fuciona por los parametros que le pasamos a la funcion 
     }
 
     /**
