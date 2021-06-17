@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Project;
+use App\Http\Requests\CreateProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -44,7 +45,7 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store()
+    public function store(CreateProjectRequest $request)
     {
         // return request();//retorna los datos  en forma de arreglo
         //return request('title');//si solo se quiere un dato en especefico se declarara de esta manera
@@ -59,7 +60,17 @@ class ProjectController extends Controller
         //     'description' => request('description'),
 
         // ]);
-        project::create(request()->all());//esto es si los nombres concide como arriba 
+        // project::create(request()->all());//esto es si los nombres concide como arriba 
+        // $fields = request()->validate
+        // ([
+        //     'title'=>'required',
+        //     'url'=>'required',
+        //     'description'=>'required',
+
+        // ]);
+        // project::create(request()->only('title','url','description'));//solo asetas los paramentros que quieres 
+        project::create($request->validated());
+
         return redirect()->route('projects.index');
 
     }
