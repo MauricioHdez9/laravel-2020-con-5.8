@@ -69,7 +69,7 @@ class ProjectController extends Controller
 
         // ]);
         // project::create(request()->only('title','url','description'));//solo asetas los paramentros que quieres 
-        project::create($request->validated());
+        project::create($request->validated());//esto es porque se inporto el CreateProjectRequest $request , que acaba de ser creado  se creo  
 
         return redirect()->route('projects.index');
 
