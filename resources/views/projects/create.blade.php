@@ -6,7 +6,7 @@
 
 <h1>crear proyecto</h1>
 <form method="POST" action="{{route('projects.store')}}"> 
-	
+	@csrf
 	<label for="">
 		titulo del proyecto <br>
 		<input type="text" name="title">
@@ -19,7 +19,7 @@
 	<br>
 	<label for="">
 		descripcion del proyecto <br>
-		<textarea name="description">
+		<textarea name="description"></textarea>
 	</label>
 	<button>guardar</button>
 </form>

@@ -5,6 +5,7 @@
 @section('content') <!--contenido  de la mini plantilla  --> 
 
 <h1>portafolio</h1>
+<a href="{{route('projects.create')}}">crear proyecto</a>
 <ul>
 	
 

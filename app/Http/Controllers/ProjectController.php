@@ -15,12 +15,12 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // $portafolio=[['title'=>'proyecto#1'],
-        //              ['title'=>'proyecto#2'],
-		// 	         ['title'=>'proyecto#3'],
-		// 	         ['title'=>'proyecto#4']];
-        //$portafolio = DB::table('projects')->get();//opcion para obtener los datos de la base de datos 
-       // $portafolio = Project::get();//
+         // $portafolio=[['title'=>'proyecto#1'],
+         // ['title'=>'proyecto#2'],
+		 // ['title'=>'proyecto#3'],
+		 // ['title'=>'proyecto#4']];
+         // $portafolio = DB::table('projects')->get();//opcion para obtener los datos de la base de datos 
+         // $portafolio = Project::get();//
     //    $portafolio = Project::orderBy('created_at',"DESC")->get();//forma que te muetra la tabla de forma decendente //created_at = nombre de la columna 
     //    $portafolio = Project::latest('created_at')->get();
     //    $projects = Project::latest('created_at')->paginate();//paginate muestra sierta cantidad de elementos por pagina  por defal muestra 15 meter en los parentecis el numero para modificar 
@@ -46,7 +46,22 @@ class ProjectController extends Controller
      */
     public function store()
     {
-        return $request();
+        // return request();//retorna los datos  en forma de arreglo
+        //return request('title');//si solo se quiere un dato en especefico se declarara de esta manera
+        //return request(['title']);//lo pasa como un == {'nombres'}
+        // $title = request('title');
+        // $url = request('url');
+        // $description = request('descrption');
+        //   project::create
+        // ([
+        //     'title'=>  request('title'),
+        //     'url'=>  request('url'),
+        //     'description' => request('description'),
+
+        // ]);
+        project::create(request()->all());//esto es si los nombres concide como arriba 
+        return redirect()->route('projects.index');
+
     }
 
     /**
