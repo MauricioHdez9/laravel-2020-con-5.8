@@ -144,6 +144,7 @@ Route::patch('/portafolio/{project}','ProjectController@update')->name('projects
 Route::post('/portafolio','ProjectController@store')->name('projects.store');
 Route::get('/portafolio/{project}','ProjectController@show')->name('projects.show');
 
+Route::delete('/portafolio/{project}','ProjectController@destroy')->name('projects.destroy');
 
 
 
