@@ -4,7 +4,7 @@
 
 @section('content') <!--contenido  de la mini plantilla  --> 
 
-<h1>crear proyecto</h1>
+<h1>Editar proyecto</h1>
 @if ($errors->any())
 	<ul>
 		@foreach ($errors ->all() as $error)
@@ -15,22 +15,22 @@
 	</ul>
 	
 @endif
-<form method="POST" action="{{route('projects.store')}}"> 
-	@csrf
+<form method="POST" action="{{route('projects.update',$project)}}"> 
+	@csrf @method('PATCH')
 	<label for="">
 		titulo del proyecto <br>
-		<input type="text" name="title" value="{{old('title')}}">
+		<input type="text" name="title" value="{{old('title',$project->title)}}">
 	</label>
 	<br>
 	<label for="">
 		url del proyecto <br>
-		<input type="text" name="url" value="{{old('url')}}">
+		<input type="text" name="url"  value="{{old('url',$project->url)}}">
 	</label>
 	<br>
 	<label for="">
 		descripcion del proyecto <br>
-		<textarea name="description">{{old('description')}}</textarea>
-	</label>
-	<button>guardar</button>
+		<textarea name="description">{{old('description', $project->description)}}</textarea>
+	</label>  
+	<button>actualizar</button>
 </form>
 @endsection

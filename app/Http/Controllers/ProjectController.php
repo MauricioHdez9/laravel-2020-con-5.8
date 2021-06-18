@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use DB;
 use App\Project;
-use App\Http\Requests\CreateProjectRequest;
+use App\Http\Requests\SaveProjectRequest;
 
 class ProjectController extends Controller
 {
@@ -45,7 +45,7 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CreateProjectRequest $request)
+    public function store(SaveProjectRequest $request)
     {
         // return request();//retorna los datos  en forma de arreglo
         //return request('title');//si solo se quiere un dato en especefico se declarara de esta manera
@@ -96,9 +96,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Project $project)
     {
-        //
+        return  view('projects.edit',['project' => $project]);
     }
 
     /**
@@ -108,9 +108,11 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Project $project,SaveProjectRequest $request)
     {
-        //
+        // $project ->update(['title' => request('title'),'url' => request('url'),'description' => request('description')]);
+        $project ->update($request->validated());//son todos los datos validados 
+        return  redirect()->route('projects.show',$project);   
     }
 
     /**
@@ -119,8 +121,9 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Project $project)
     {
-        //
+        // project->delete();
+        // return redirect()->route('projects.index');   
     }
 }
